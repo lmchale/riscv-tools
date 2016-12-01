@@ -7,6 +7,7 @@
 
 echo "Starting RISC-V Toolchain build process"
 
+set -e
 build_project riscv-fesvr --prefix=$RISCV
 build_project riscv-isa-sim --prefix=$RISCV --with-fesvr=$RISCV
 build_project riscv-gnu-toolchain --prefix=$RISCV

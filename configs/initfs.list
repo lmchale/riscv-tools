@@ -1,0 +1,27 @@
+# This is a very simple, default initramfs
+
+dir /dev 0755 0 0
+dir /etc 0755 0 0
+dir /lib 0755 0 0
+dir /proc 0755 0 0
+dir /sbin 0755 0 0
+dir /bin 0755 0 0
+dir /sys 0755 0 0
+dir /tmp 0755 0 0
+dir /usr 0755 0 0
+dir /usr/bin 0755 0 0
+dir /usr/sbin 0755 0 0
+file /etc/inittab initfiles/inittab 500 0 0
+file /bin/busybox initfiles/busybox 500 0 0
+file /bin/hello initfiles/hello 500 0 0
+#slink /bin/sh /bin/busybox 777 0 0
+slink /sbin/init /bin/busybox 777 0 0
+slink /init /bin/busybox 777 0 0
+#slink /init /bin/hello 777 0 0
+nod /dev/console 644 0 0 c 5 1
+#nod /dev/loop0 644 0 0 b 7 0
+
+#nod /dev/console 0600 0 0 c 5 1
+#dir /root 0700 0 0
+# file /kinit usr/kinit/kinit 0755 0 0
+# slink /init kinit 0755 0 0
